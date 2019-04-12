@@ -87,11 +87,23 @@
           @{color}: #333333;
           font-weight: bold;
         }
+        &:hover{
+          background-@{color}:#6c63ff;
+          a{
+            @{color}:#ffffff;
+          }
+        }
       }
 
       li.active {
         a {
           @{color}: #6c63ff;
+        }
+        &:hover{
+          background-@{color}:#6c63ff;
+          a{
+            @{color}:#ffffff;
+          }
         }
       }
     }
