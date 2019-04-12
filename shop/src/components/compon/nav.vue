@@ -70,14 +70,18 @@
 </script>
 
 <style lang="less" scoped>
+// set global variables
   @align: align;
-  @width: 20%;
   @color: color;
+  .width-set(@widths:20%){
+    width:@widths;
+  }
 
   .content {
     .ul {
       li {
-        width: @width;
+        // .width-set(25%);
+        .width-set;
         text-@{align}: center;
         a {
           @{color}: #333333;
