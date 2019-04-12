@@ -1,37 +1,96 @@
 <template>
   <div class="content">
-      <div class="logo">
-        <img src="" alt="">
-      </div>
-      <ul class="flexbox">
-        <!-- 
+    <div class="logo">
+      <img src="" alt="">
+    </div>
+    <ul class="ul flexbox">
+      <!-- 
           vue router-link传值
           <router-link :to="{name:'detail', query:{id:1}}">XXX</router-link>
           获取路由参数（要注意是 query ，还是 params 和 对应的 id 名?)
           这里是 query
           this.$route.query.id
          -->
-        <li>
-          <router-link :to="{name:'index',query:{id:1}}">我的主页</router-link>
-        </li>
-        <li>
-          <router-link :to="{name:'index',query:{id:1}}"></router-link>
-        </li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+      <li :class="item.active" v-for="(item,index) in nav" :key="index" @click="navFn" :data-id="index">
+        <router-link tag="a" :to="{name:item.path,query:{id:item.query}}">{{item.txt}}</router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
   export default {
-    name:"Nav",
-    data(){
-      return{
-
+    name: "Nav",
+    data() {
+      return {
+        nav: [{
+            path: "index",
+            query: 1,
+            txt: "我的主页",
+            active:"active"
+          },
+          {
+            path: "index",
+            query: 1,
+            txt: "项目",
+            active:""
+          },
+          {
+            path: "index",
+            query: 1,
+            txt: "技术",
+            active:""
+          },
+          {
+            path: "index",
+            query: 1,
+            txt: "我的相册",
+            active:""
+          },
+          {
+            path: "index",
+            query: 1,
+            txt: "过往",
+            active:""
+          },
+        ]
       }
+    },
+    methods:{
+      navFn(e){
+        console.log(e.target)
+      }
+
+
+
+
     }
   }
 
 </script>
+
+<style lang="less" scoped>
+  @align: align;
+  @width: 20%;
+  @color: color;
+
+  .content {
+    .ul {
+      li {
+        width: @width;
+        text-@{align}: center;
+        a {
+          @{color}: #333333;
+          font-weight: bold;
+        }
+      }
+
+      li.active {
+        a {
+          @{color}: #6c63ff;
+        }
+      }
+    }
+  }
+
+</style>
