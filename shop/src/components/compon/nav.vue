@@ -11,7 +11,7 @@
           这里是 query
           this.$route.query.id
          -->
-      <li :class="item.active" v-for="(item,index) in nav" :key="index" @click="navFn" :data-id="index">
+      <li :class="item.active" v-for="(item,index) in nav" :key="index" @click="navFn(index)">
         <router-link tag="a" :to="{name:item.path,query:{id:item.query}}">{{item.txt}}</router-link>
       </li>
     </ul>
