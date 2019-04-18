@@ -12,9 +12,10 @@
           this.$route.query.id
          -->
       <li :class="item.active" v-for="(item,index) in nav" :key="index" @click="navFn(index)">
-        <router-link tag="a" :to="{name:item.path,query:{id:item.query}}">{{item.txt}}</router-link>
+        <router-link tag="a" :to="{path:item.path,query:{id:item.query}}">{{item.txt}}</router-link>
       </li>
     </ul>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -24,31 +25,31 @@
     data() {
       return {
         nav: [{
-            path: "index",
+            path: "/",
             query: 1,
             txt: "我的主页",
             active:"active"
           },
           {
-            path: "index",
+            path: "/product",
             query: 1,
             txt: "项目",
             active:""
           },
           {
-            path: "index",
+            path: "/",
             query: 1,
             txt: "技术",
             active:""
           },
           {
-            path: "index",
-            query: 1,
+            path: "/",
+            query: 1,   
             txt: "我的相册",
             active:""
           },
           {
-            path: "index",
+            path: "/",
             query: 1,
             txt: "过往",
             active:""
@@ -58,7 +59,10 @@
     },
     methods:{
       navFn(e){
-        console.log(e.target)
+        {
+          let ev = e;
+          console.log(e)
+        }
       }
 
 
