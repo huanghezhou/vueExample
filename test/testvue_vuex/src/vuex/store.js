@@ -16,6 +16,7 @@ const mutations = {
 }
 // context，它是一个和store对象具有相同对象属性的参数
 // 在第二个函数中，我是直接使用了这个对象的commit的方法
+// 可以直接使用 commit方法
 const actions = {
     actionsAddCount(context,n=0){
         console.log(context);
